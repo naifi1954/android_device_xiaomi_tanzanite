@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2025 The LineageOS Project
+# Copyright (C) 2026 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -17,7 +17,7 @@ $(call inherit-product, device/xiaomi/tanzanite/device.mk)
 PRODUCT_DEVICE := tanzanite
 PRODUCT_NAME := lineage_tanzanite
 PRODUCT_BRAND := Redmi
-PRODUCT_MODEL := 24117RN76O
+PRODUCT_MODEL := Redmi Note 14 4G
 PRODUCT_MANUFACTURER := xiaomi
 
 PRODUCT_BRAND_FOR_ATTESTATION := $(PRODUCT_BRAND)

@@ -1,11 +1,11 @@
 #
-# Copyright (C) 2025 The LineageOS Project
+# Copyright (C) 2026 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 DEVICE_PATH := device/xiaomi/tanzanite
-KERNEL_PATH := device/xiaomi/tanzanite-kernel
+KERNEL_PATH := $(DEVICE_PATH)-kernel
 
 # Architecture
 TARGET_ARCH := arm64
@@ -73,9 +73,10 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_NO_KERNEL_OVERRIDE := true
 
 # Workaround to make lineage's soong generator work
-TARGET_KERNEL_SOURCE := device/xiaomi/tanzanite-kernel/kernel-headers
+TARGET_KERNEL_SOURCE := $(KERNEL_PATH)/kernel-headers
 
 LOCAL_KERNEL := $(KERNEL_PATH)/Image.gz
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
@@ -110,7 +111,12 @@ BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_SUPER_PARTITION_SIZE := 8053063680
 BOARD_SUPER_PARTITION_GROUPS := mtk_dynamic_partitions
 
-BOARD_MTK_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor product vendor_dlkm
+BOARD_MTK_DYNAMIC_PARTITIONS_PARTITION_LIST := \
+	system \
+	system_ext \
+	vendor \
+	product \
+	vendor_dlkm
 BOARD_MTK_DYNAMIC_PARTITIONS_SIZE := 8048869376
 
 BOARD_EROFS_PCLUSTER_SIZE := 262144
